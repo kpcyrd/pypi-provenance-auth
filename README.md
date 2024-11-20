@@ -12,6 +12,7 @@ This is highly experimental proof-of-concept code:
 
 - [ ] The attestation is not cryptographically verified
 - [ ] There is no check the envelope and certificate actually belong to the same attestation
+- [ ] Some of the command-line flags are not actually asserted yet
 
 If you're good with sigstore and Rust you're very welcome to contribute!
 
