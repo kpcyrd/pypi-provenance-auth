@@ -26,8 +26,11 @@ If you're good with sigstore and Rust you're very welcome to contribute!
 
 ## Trivia
 
-This project was started in Stockholm during Hackjunta 2024#2 organized by ln5,
-after a Debian developer (pabs) requested my take on PEP-740.
+This project was started in Stockholm during Hackjunta 2024#2 organized by
+[ln5], after a Debian developer ([pabs]) requested my take on PEP-740.
+
+[ln5]: https://github.com/ln5
+[pabs]: https://github.com/pabs3
 
 ## License
 
