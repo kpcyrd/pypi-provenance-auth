@@ -1,0 +1,16 @@
+[package]
+name = "pypi-provenance-auth"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+anyhow = "1.0.93"
+asn1-rs = "0.6.2"
+clap = { version = "4.5.21", features = ["derive"] }
+data-encoding = "2.6.0"
+env_logger = "0.11.5"
+in-toto = "0.3.1"
+log = "0.4.22"
+serde = { version = "1.0.215", features = ["derive"] }
+serde_json = "1.0.132"
+x509-parser = "0.16.0"
