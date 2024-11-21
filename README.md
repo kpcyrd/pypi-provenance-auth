@@ -20,7 +20,7 @@ If you're good with sigstore and Rust you're very welcome to contribute!
 
 ```sh
 ./pypi-provenance-auth --commit "$(git rev-parse HEAD)" \
-    --subject "cryptography-${pkgver}.tar.gz"
+    --subject "cryptography-${pkgver}.tar.gz" \
     --attestation-file "./test_data/cryptography-${pkgver}.provenance"
 ```
 
