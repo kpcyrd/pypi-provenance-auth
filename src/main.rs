@@ -11,6 +11,17 @@ use std::ffi::OsStr;
 use std::fs;
 use std::process::{Command, Stdio};
 
+fn verify_argument(verification_failed: &mut bool, label: &str, expected: &str, attestation: &str) {
+    if expected != attestation {
+        error!(
+            "{label} does not match attestation (expected={expected:?}, attestation={attestation:?})"
+        );
+        *verification_failed = true;
+    } else {
+        debug!("{label} verified successfully: {attestation:?}");
+    }
+}
+
 fn main() -> Result<()> {
     let args = Args::parse();
 
@@ -57,8 +68,32 @@ fn main() -> Result<()> {
     };
     debug!("Using git commit: {commit:?}");
 
-    // TODO: write more code
-    attestation.commit;
+    // verify attestation matches arguments
+    let mut verification_failed = false;
+    verify_argument(
+        &mut verification_failed,
+        "Commit",
+        &commit,
+        &attestation.commit,
+    );
+    verify_argument(
+        &mut verification_failed,
+        "Subject",
+        &args.subject,
+        &attestation.subject,
+    );
+    if let Some(repository) = args.repository {
+        verify_argument(
+            &mut verification_failed,
+            "Repository",
+            &repository,
+            &attestation.repository,
+        );
+    }
 
-    Ok(())
+    if verification_failed {
+        bail!("Verification of attestation failed");
+    } else {
+        Ok(())
+    }
 }
